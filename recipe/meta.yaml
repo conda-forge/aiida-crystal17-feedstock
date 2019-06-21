@@ -73,8 +73,8 @@ test:
     - aiida_crystal17.validation
     - aiida_crystal17.workflows
   commands:
-    - mock_runcry17 --help
-    - mock_gulp --help
+    - mock_runcry17 --test
+    - mock_gulp --test
 
 about:
   home: https://github.com/chrisjsewell/aiida-crystal17
