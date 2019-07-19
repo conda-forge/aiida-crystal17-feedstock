@@ -12,7 +12,7 @@ source:
 build:
   number: 0
   entry_points:
-    - mock_crystal17 = aiida_crystal17.tests.mock_runcry17:main
+    - mock_crystal17 = aiida_crystal17.tests.mock_crystal17:main
     - mock_properties17 = aiida_crystal17.tests.mock_properties17:main
     - mock_gulp = aiida_crystal17.tests.mock_gulp:main
   script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv "
