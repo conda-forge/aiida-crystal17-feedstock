@@ -12,7 +12,8 @@ source:
 build:
   number: 0
   entry_points:
-    - mock_runcry17 = aiida_crystal17.tests.mock_runcry17:main
+    - mock_crystal17 = aiida_crystal17.tests.mock_runcry17:main
+    - mock_properties17 = aiida_crystal17.tests.mock_properties17:main
     - mock_gulp = aiida_crystal17.tests.mock_gulp:main
   script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv "
   skip: True  # [win or py > 36]
@@ -64,7 +65,7 @@ test:
     - aiida_crystal17.workflows.crystal_main
     - aiida_crystal17.workflows.crystal_props
   commands:
-    - mock_runcry17 --test
+    - mock_crystal17 --test
     - mock_properties17 --test
     - mock_gulp --test
 
