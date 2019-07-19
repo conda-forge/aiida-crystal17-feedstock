@@ -12,29 +12,35 @@ source:
 build:
   number: 0
   entry_points:
-    - mock_runcry17 = aiida_crystal17.tests.mock_runcry17:main
+    - mock_crystal17 = aiida_crystal17.tests.mock_crystal17:main
+    - mock_properties17 = aiida_crystal17.tests.mock_properties17:main
     - mock_gulp = aiida_crystal17.tests.mock_gulp:main
   script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv "
-  skip: True  # [win or py > 36]
 
 requirements:
   host:
+    - aiida-core ==1.0.0b5
+    - ase >=3.12.0,<4.0.0
+    - jsonextended >=0.7.10
+    - jsonschema
     - pip
+    - pycifrw ==4.2.1
+    - pycifrw ==4.4
     - python
-    - reentry >=1.3.0
+    - ruamel.yaml
     - setuptools
+    - six
+    - spglib >=1.10.0,<2.0.0
   run:
     - aiida-core ==1.0.0b5
     - ase >=3.12.0,<4.0.0
     - jsonextended >=0.7.10
     - jsonschema
-    # TODO these are the requirements in aiida-core[atomic_tools]
-    # but pycifrw only available from 4.3 on conda-forge
-    # - pycifrw ==4.2.1  # [py <= 27]
-    # - pycifrw ==4.4  # [py > 27]
+    - pycifrw ==4.2.1
     - pycifrw ==4.4
     - python
     - ruamel.yaml
+    - setuptools
     - six
     - spglib >=1.10.0,<2.0.0
 
@@ -58,25 +64,38 @@ test:
     - aiida_crystal17.parsers.raw
     - aiida_crystal17.symmetry
     - aiida_crystal17.tests
+    - aiida_crystal17.tests.raw_files
+    - aiida_crystal17.tests.raw_files.gui
+    - aiida_crystal17.tests.raw_files.gui.in
+    - aiida_crystal17.tests.raw_files.gui.out
+    - aiida_crystal17.tests.test_calculations
+    - aiida_crystal17.tests.test_cmndline
+    - aiida_crystal17.tests.test_data
+    - aiida_crystal17.tests.test_immigration
+    - aiida_crystal17.tests.test_parsers
+    - aiida_crystal17.tests.test_parsers.test_raw
+    - aiida_crystal17.tests.test_symmetry
+    - aiida_crystal17.tests.test_validation
+    - aiida_crystal17.tests.test_workflows
     - aiida_crystal17.validation
     - aiida_crystal17.workflows
     - aiida_crystal17.workflows.common
     - aiida_crystal17.workflows.crystal_main
     - aiida_crystal17.workflows.crystal_props
   commands:
-    - mock_runcry17 --test
-    - mock_properties17 --test
-    - mock_gulp --test
+    - mock_crystal17 --help
+    - mock_properties17 --help
+    - mock_gulp --help
 
 about:
   home: https://github.com/chrisjsewell/aiida-crystal17
   license: MIT
   license_family: MIT
-  license_file: LICENSE
+  license_file: 
   summary: AiiDA plugin for running the CRYSTAL17 code
-  doc_url: https://aiida-crystal17.readthedocs.io
-  dev_url: https://github.com/chrisjsewell/aiida-crystal17
+  doc_url: 
+  dev_url: 
 
 extra:
   recipe-maintainers:
-    - chrisjsewell
+    - your-github-id-here
