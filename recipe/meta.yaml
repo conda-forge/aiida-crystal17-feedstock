@@ -1,5 +1,5 @@
 {% set name = "aiida-crystal17" %}
-{% set version = "0.9.0b5" %}
+{% set version = "0.9.1b5" %}
 
 package:
   name: "{{ name|lower }}"
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: bcd74ab89b801c16e6f41401f203ad108723f08667f6f46d1bf750754e3459b7
+  sha256: "7773f0dd9b5c86f48b5331a34b36e55d26f5bdd5f9de32b20901c423128922e7"
 
 build:
   number: 0
