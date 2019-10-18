@@ -30,7 +30,7 @@ requirements:
     - importlib_resources
     - jsonextended >=0.7.10
     - jsonschema
-    - pathlib2;   # [ py < 34 ]
+    - pathlib2   # [ py < 34 ]
     # TODO these are the requirements in aiida-core[atomic_tools]
     # but pycifrw only available from 4.3 on conda-forge
     # - pycifrw ==4.2.1  # [py <= 27]
