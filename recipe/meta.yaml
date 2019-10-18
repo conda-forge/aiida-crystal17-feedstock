@@ -1,5 +1,5 @@
 {% set name = "aiida-crystal17" %}
-{% set version = "0.9.2b5" %}
+{% set version = "0.10.0b5" %}
 
 package:
   name: "{{ name|lower }}"
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: "203cea484190dea9c11c4f94230715615b3d3724a54d3a535b83f35c36b77eeb"
+  sha256: "764b3be1f6fdadf9ef633bbee4ff98c8a6847bff3c914605578295ec1da2a6a5"
 
 build:
   number: 0
@@ -27,8 +27,10 @@ requirements:
   run:
     - aiida-core ==1.0.0b5
     - ase >=3.12.0,<4.0.0
+    - importlib_resources
     - jsonextended >=0.7.10
     - jsonschema
+    - pathlib2;   # [ py < 34 ]
     # TODO these are the requirements in aiida-core[atomic_tools]
     # but pycifrw only available from 4.3 on conda-forge
     # - pycifrw ==4.2.1  # [py <= 27]
@@ -60,6 +62,7 @@ test:
     - aiida_crystal17.symmetry
     - aiida_crystal17.tests
     - aiida_crystal17.validation
+    - aiida_crystal17.validation.schemas
     - aiida_crystal17.workflows
     - aiida_crystal17.workflows.common
     - aiida_crystal17.workflows.crystal_main
