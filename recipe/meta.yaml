@@ -30,7 +30,6 @@ requirements:
     - jsonextended >=0.7.10
     - jsonschema
     - pycifrw >=4.4.1,<5.0.0
-    - pycifrw ==4.4
     - python
     - pyyaml
     - spglib >=1.10.0,<2.0.0
