@@ -1,22 +1,21 @@
 {% set name = "aiida-crystal17" %}
-{% set version = "0.10.0b5" %}
+{% set version = "0.11.0" %}
 
 package:
-  name: "{{ name|lower }}"
-  version: "{{ version }}"
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: "764b3be1f6fdadf9ef633bbee4ff98c8a6847bff3c914605578295ec1da2a6a5"
+  sha256: 8a21dcf6137092ebb3e1e35c3385debbb7f8e5d29986dd2754944bf84af1ee81
 
 build:
   number: 0
   entry_points:
     - mock_crystal17 = aiida_crystal17.tests.mock_crystal17:main
     - mock_properties17 = aiida_crystal17.tests.mock_properties17:main
-    - mock_gulp = aiida_crystal17.tests.mock_gulp:main
-  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv "
-  skip: True  # [win or py > 36]
+  script: '{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv '
+  skip: true  # [win or py < 35 or py > 38]
 
 requirements:
   host:
@@ -25,20 +24,14 @@ requirements:
     - reentry >=1.3.0
     - setuptools
   run:
-    - aiida-core ==1.0.0b5
+    - aiida-core >=1.4.0,<2.0.0
     - ase >=3.12.0,<4.0.0
     - importlib_resources
     - jsonextended >=0.7.10
     - jsonschema
-    - pathlib2   # [ py < 34 ]
-    # TODO these are the requirements in aiida-core[atomic_tools]
-    # but pycifrw only available from 4.3 on conda-forge
-    # - pycifrw ==4.2.1  # [py <= 27]
-    # - pycifrw ==4.4  # [py > 27]
-    - pycifrw ==4.4
+    - pycifrw >=4.4.1,<5.0.0
     - python
-    - ruamel.yaml
-    - six >=1.12.0
+    - pyyaml
     - spglib >=1.10.0,<2.0.0
 
 test:
@@ -49,28 +42,18 @@ test:
     - aiida_crystal17.cmndline
     - aiida_crystal17.common
     - aiida_crystal17.data
-    - aiida_crystal17.gulp
-    - aiida_crystal17.gulp.calculations
-    - aiida_crystal17.gulp.cmndline
-    - aiida_crystal17.gulp.data
-    - aiida_crystal17.gulp.parsers
-    - aiida_crystal17.gulp.parsers.raw
-    - aiida_crystal17.gulp.potentials
     - aiida_crystal17.immigration
     - aiida_crystal17.parsers
     - aiida_crystal17.parsers.raw
     - aiida_crystal17.symmetry
-    - aiida_crystal17.tests
     - aiida_crystal17.validation
     - aiida_crystal17.validation.schemas
     - aiida_crystal17.workflows
-    - aiida_crystal17.workflows.common
     - aiida_crystal17.workflows.crystal_main
     - aiida_crystal17.workflows.crystal_props
   commands:
     - mock_crystal17 --test
     - mock_properties17 --test
-    - mock_gulp --test
 
 about:
   home: https://github.com/chrisjsewell/aiida-crystal17
