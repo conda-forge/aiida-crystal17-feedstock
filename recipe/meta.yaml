@@ -11,7 +11,6 @@ source:
 
 build:
   number: 0
-  noarch: python
   entry_points:
     - mock_crystal17 = aiida_crystal17.tests.mock_crystal17:main
     - mock_properties17 = aiida_crystal17.tests.mock_properties17:main
