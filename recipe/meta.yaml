@@ -1,13 +1,13 @@
 {% set name = "aiida-crystal17" %}
-{% set version = "0.10.0b5" %}
+{% set version = "0.11.0" %}
 
 package:
-  name: "{{ name|lower }}"
-  version: "{{ version }}"
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: "764b3be1f6fdadf9ef633bbee4ff98c8a6847bff3c914605578295ec1da2a6a5"
+  sha256: 8a21dcf6137092ebb3e1e35c3385debbb7f8e5d29986dd2754944bf84af1ee81
 
 build:
   number: 0
@@ -15,8 +15,8 @@ build:
     - mock_crystal17 = aiida_crystal17.tests.mock_crystal17:main
     - mock_properties17 = aiida_crystal17.tests.mock_properties17:main
     - mock_gulp = aiida_crystal17.tests.mock_gulp:main
-  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv "
-  skip: True  # [win or py > 36]
+  script: '{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv '
+  skip: true  # [win or py > 36]
 
 requirements:
   host:
