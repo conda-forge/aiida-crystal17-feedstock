@@ -49,7 +49,6 @@ test:
     - aiida_crystal17.validation
     - aiida_crystal17.validation.schemas
     - aiida_crystal17.workflows
-    - aiida_crystal17.workflows.common
     - aiida_crystal17.workflows.crystal_main
     - aiida_crystal17.workflows.crystal_props
   commands:
