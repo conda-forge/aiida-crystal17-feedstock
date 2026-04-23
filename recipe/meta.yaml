@@ -10,7 +10,7 @@ source:
   sha256: 8a21dcf6137092ebb3e1e35c3385debbb7f8e5d29986dd2754944bf84af1ee81
 
 build:
-  number: 0
+  number: 1
   entry_points:
     - mock_crystal17 = aiida_crystal17.tests.mock_crystal17:main
     - mock_properties17 = aiida_crystal17.tests.mock_properties17:main
